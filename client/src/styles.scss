@@ -187,7 +187,8 @@ template {
   display: none;
 }
 
-ul, li {
+ul,
+li {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -211,14 +212,12 @@ ul, li {
   overflow-x: hidden;
 }
 
-.list-header {
-
-}
+.list-header {}
 
 .list {
   padding: 16px;
 
-  & > li:not(:last-child) {
+  &>li:not(:last-child) {
     margin-top: 8px;
   }
 }
@@ -227,7 +226,7 @@ ul, li {
   background-color: #dcdbdb;
   border-radius: 8px;
 
-  & > a {
+  &>a {
     padding: 16px;
     display: flex;
     flex-direction: column;
@@ -249,6 +248,7 @@ ul, li {
 }
 
 .list-item__description {
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
