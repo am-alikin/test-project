@@ -212,7 +212,9 @@ li {
   overflow-x: hidden;
 }
 
-.list-header {}
+.list-header {
+  padding: 0 16px;
+}
 
 .list {
   padding: 16px;
