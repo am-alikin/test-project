@@ -10,6 +10,7 @@ type ItemType = {
 function SinglePage() {
   const { id } = useParams();
   const [item, setItem] = useState<ItemType | null>(null);
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     fetch(`${process.env.API_URL}/items/${id}`)
@@ -17,13 +18,15 @@ function SinglePage() {
       .then(data => setItem(data))
       .catch(err => {
         console.error('Failed to fetch item', err);
+        setError(true)
       });
   }, []);
 
   return (
     <div className="detail">
       <Link to={'/'}>Go Back</Link>
-      {!item && <>Loading...</>}
+      {error && <div>Error loading the item '{id}'!</div>}
+      {!error && !item && <div>Loading...</div>}
       {item && <>
         <h2>Item Details</h2>
         <p>ID: {item.id}</p>
