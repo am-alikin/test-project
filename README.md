@@ -57,6 +57,7 @@ This project serves as a technical test assignment. It contains several bugs and
 - move query regexp before filter call function to improve performance
 - also export button in client/src/pages/components/index.ts to shorter import paths
 - remove Component: React.FC<any> - react already know about function components
+- hide/disable filter during first load of the list
 - save active items after navigation did with context/state manager
 - use pass id in subtitle to print formatted text inside subtitle and achieve same behavior as useMemo
 - use non any generic type for fetched data. IE. define interface globally ItemType {id, .... } and use it instead any. This helps developers know about data format in returned data and avoid errors when field names or types will change in further versions
