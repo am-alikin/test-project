@@ -9,10 +9,10 @@ const SubTitle: React.FC<any> = ({ children }) => (
 
 function ListPage() {
     const { items, isFetched } = useData();
-    const [sortedItems, sortBy, handleSortClick] = useSort(items);
+    const [filteredItems, setFilteredItems] = useState<any[]>([]);
+    const [sortedItems, sortBy, handleSortClick] = useSort(filteredItems);
 
     const [activeItemId, setActiveItemId] = useState<any>(null);
-    const [filteredItems, setFilteredItems] = useState<any[]>([]);
     const [query, setQuery] = useState('');
 
     const activeItemText = useMemo(() => activeItemId ? activeItemId : 'Empty', [activeItemId]);
