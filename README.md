@@ -65,6 +65,11 @@ This project serves as a technical test assignment. It contains several bugs and
 - use AXIOS wrapper or another package to get data and handle a temporary server unavailability during maintenance (reloading, updating)
 - don't allow to click on a item which will return 403 error. Show a note or mark item with color if item cannot be viewed.
 - use <Route path="/item/:id" ... /> if the app is going to be developed further
-- depending on will the app is going to be indexed also add static pages that regenerates them daily 
+- depending on will the app is going to be indexed also add static pages that regenerates them daily
+- update npm packages. some of them soon is going to be deprecated
+- update node to 24 version
+- add package-lock.json in project to match download urls on both developer and server
+- set target to ES2015 in tsconfig to support more browsers (if needed)
+- 
 
 
