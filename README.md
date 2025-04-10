@@ -64,7 +64,7 @@ This project serves as a technical test assignment. It contains several bugs and
 - don't use null for undefined variables. Ut shorter the definition of states and it's a bad habit also
 - use AXIOS wrapper or another package to get data and handle a temporary server unavailability during maintenance (reloading, updating)
 - don't allow to click on a item which will return 403 error. Show a note or mark item with color if item cannot be viewed.
-- use <Route path="/item/:id" ... /> if the app is going to be developed and there are new items will created
+- use <Route path="/item/:id" ... /> if the app is going to be developed further
 - depending on will the app is going to be indexed also add static pages that regenerates them daily 
 
 
