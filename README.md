@@ -47,3 +47,24 @@ This project serves as a technical test assignment. It contains several bugs and
 - Code clarity and structure
 - Understanding of React and frontend best practices
 - Ability to propose architectural and UX improvements
+
+## TODO
+
+- use debounce for a list to prevent search spamming
+- add padding to list header (solved)
+- sort on server without overloading client with large list
+- also add pagination with option to show all (users get used to interface and we still have no idea about user behavior without any analytics)
+- move query regexp before filter call function to improve performance
+- also export button in client/src/pages/components/index.ts to shorter import paths
+- remove Component: React.FC<any> - react already know about function components
+- save active items after navigation did with context/state manager
+- use pass id in subtitle to print formatted text inside subtitle and achieve same behavior as useMemo
+- use non any generic type for fetched data. IE. define interface globally ItemType {id, .... } and use it instead any. This helps developers know about data format in returned data and avoid errors when field names or types will change in further versions
+- May be it worth to use css modules with one per if the app is going to be scaled
+- don't use null for undefined variables. Ut shorter the definition of states and it's a bad habit also
+- use AXIOS wrapper or another package to get data and handle a temporary server unavailability during maintenance (reloading, updating)
+- don't allow to click on a item which will return 403 error. Show a note or mark item with color if item cannot be viewed.
+- use <Route path="/item/:id" ... /> if the app is going to be developed and there are new items will created
+- depending on will the app is going to be indexed also add static pages that regenerates them daily 
+
+
