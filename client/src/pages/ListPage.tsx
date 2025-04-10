@@ -48,9 +48,9 @@ function ListPage() {
             <div className="list-container">
                 <div className="list">
                     {!isFetched && <span>Loading...</span>}
-                    {filteredItems.map((item, index) => (
+                    {filteredItems.map((item) => (
                         <ListItem
-                            key={index}
+                            key={item.id}
                             isActive={activeItemId === item.id}
                             id={item.id}
                             name={item.name}
