@@ -2,22 +2,29 @@ import { useEffect, useState } from 'react';
 
 function useData() {
 	const [items, setItems] = useState<any[]>([]);
-	
-	function fetchItems() {
-		fetch(`${process.env.API_URL}/items`)
-			.then(res => res.json())
-			.then(data => setItems(data))
-			.catch(err => {
-				console.error('Failed to fetch items', err);
-			})
-	}
-	
+	const [isFetched, setIsFetched] = useState(false)
+
 	useEffect(() => {
+		function fetchItems() {
+			fetch(`${process.env.API_URL}/items`)
+				.then(res => res.json())
+				.then(data => {
+					setItems(data)
+					setIsFetched(true)
+				})
+				.catch(err => {
+					console.error('Failed to fetch items', err);
+				})
+		}
+
 		fetchItems();
-		setInterval(fetchItems, 10000);
+		var interval = setInterval(fetchItems, 10000);
+		return () => {
+			clearInterval(interval)
+		}
 	}, []);
-	
-	return items;
+
+	return { items, isFetched };
 }
 
 export default useData;
