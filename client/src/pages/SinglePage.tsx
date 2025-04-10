@@ -10,22 +10,32 @@ type ItemType = {
 function SinglePage() {
   const { id } = useParams();
   const [item, setItem] = useState<ItemType | null>(null);
-  const [error, setError] = useState(false)
+  const [error, setError] = useState<number>()
 
   useEffect(() => {
     fetch(`${process.env.API_URL}/items/${id}`)
-      .then(res => res.json())
+      .then(res => {
+        if (res.status >= 400) {
+          setError(res.status)
+          return null
+        }
+        return res.json()
+      })
       .then(data => setItem(data))
       .catch(err => {
         console.error('Failed to fetch item', err);
-        setError(true)
+        setError(error)
       });
   }, []);
 
   return (
     <div className="detail">
       <Link to={'/'}>Go Back</Link>
-      {error && <div>Error loading the item '{id}'!</div>}
+      {error &&
+        <div>
+          {error === 403 && <>Access denied to the item with id:'{id}'!</> || <>Error occurred while loading the item with id:'{id}'!</>}
+        </div>
+      }
       {!error && !item && <div>Loading...</div>}
       {item && <>
         <h2>Item Details</h2>
