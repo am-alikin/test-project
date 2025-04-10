@@ -31,9 +31,11 @@ function ListPage() {
 
     useEffect(() => {
         if (query.length > 0) {
-            setFilteredItems(filteredItems.filter(item => `${item.id}`.includes(query.toLowerCase().trimStart().trimEnd().replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))));
+            setFilteredItems(items.filter(item => `${item.id}`.includes(query.toLowerCase().trimStart().trimEnd().replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))));
+        } else {
+            setFilteredItems(items)
         }
-    }, [query, filteredItems]);
+    }, [query, items]);
 
     return (
         <div className={'list-wrapper'}>
