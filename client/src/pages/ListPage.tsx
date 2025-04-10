@@ -49,7 +49,7 @@ function ListPage() {
                     {filteredItems.map((item, index) => (
                         <ListItem
                             key={index}
-                            isactive={activeItemId === item.id}
+                            isActive={activeItemId === item.id}
                             id={item.id}
                             name={item.name}
                             description={item.description}
